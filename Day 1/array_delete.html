@@ -4,48 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Array Insert</title>
+    <title>Array Delete</title>
   </head>
   <body>
     <h3>Old data :1 34 5 6 7</h3>
     <input type="number" placeholder="Enter Position Number" id="position" />
-    <input type="number" placeholder="Enter New Element" id="newElement" />
-    <button onclick="handleAdd()">Insert</button>
+    <button onclick="handleDelete()">Insert</button>
 
     <h3>After Add New Element : <span id="showData"></span></h3>
   </body>
 
   <script>
-    // let arr = [1, 34, 5, 6, 7];
-
-    // let position = 2;
-    // let newElement = 99;
-
-    // console.log("arr: ", arr);
-
-    // console.log("after loop", arr);
-
-    const handleAdd = () => {
+    const handleDelete = () => {
       let arr = [1, 34, 5, 6, 7];
 
       let position = document.getElementById("position").value;
-      let newElement = document.getElementById("newElement").value;
       //   console.log("newElement: ", typeof newElement);
-
+      position = Number(position);
       //   console.log("arr: ", arr);
       if (Number(position) > arr.length) {
         alert("Please Enter correct Position as per below data");
       }
 
-      for (let i = arr.length - 1; i >= 0; i--) {
-        if (i >= Number(position)) {
-          arr[i + 1] = arr[i];
-
-          if (i === Number(position)) {
-            arr[i] = Number(newElement);
-          }
-        }
+      for (let i = position; i < arr.length - 1; i++) {
+        arr[i] = arr[i + 1];
       }
+      arr.length = arr.length - 1;
       //   console.log("after loop", arr);
 
       //second method of this is splice inbuild functioin
@@ -55,6 +39,6 @@
       let showData = document.getElementById("showData");
       showData.innerText = arr.join(" ");
     };
-
+    // what is the time complexcity of this code ?
   </script>
 </html>
