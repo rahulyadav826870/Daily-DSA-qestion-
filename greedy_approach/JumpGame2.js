@@ -2,7 +2,7 @@
 // Greedy approach
 
 
-let arr=[2,3,0,1,4]      // output should   2
+let arr=[1,2,4,3,4,5]      // output should   2
 let [jumpRequired,currenJumpEnd,maxReach]=[0,0,0]
 // console.log(jumpEnd)
 
