@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+
+const LinkedListNode = class {
+    constructor(nodeData) {
+        this.data = nodeData;
+        this.next = null;
+    }
+};
+
+var deleteDuplicates = function(head) {
+    let current = head;
+    while (current !== null && current.next !== null) {
+        if (current.data === current.next.data) {
+            current.next = current.next.next;
+        } else {
+            current = current.next;
+        }
+    }
+    return head;
+};
+
+// Create a linked list with duplicates
+const head = new LinkedListNode(1);
+head.next = new LinkedListNode(1);
+head.next.next = new LinkedListNode(2);
+head.next.next.next = new LinkedListNode(3);
+head.next.next.next.next = new LinkedListNode(3);
+
+// Call the function to remove duplicates
+deleteDuplicates(head);
+
+// Print the resulting linked list
+let current = head;
+while (current !== null) {
+    console.log(current.data);
+    current = current.next;
+}
+
+</script>
